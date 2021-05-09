@@ -46,9 +46,22 @@
 		},
 		{
 			"name": "userAuth",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"ninguemsabe\",\r\n    \"clientId\": \"master-realm\",\r\n    \"secret\": \"8628844d-f100-4481-b3b7-ecd16c72d0d2\"\r\n}"
+				},
 				"url": {
 					"raw": "localhost:3000/auth",
 					"host": [

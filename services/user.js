@@ -4,12 +4,12 @@ import server from '../config/server';
 
 server.get('/auth', async(req, res) => {
     await keycloak.auth({
-        username: 'admin',
-        password: 'ninguemsabe',
+        username: req.body.username,
+        password: req.body.password,
         grantType: 'password',
-        clientId: 'master-realm',
+        clientId: req.body.clientId,
         totp: '123456',
-        clientSecret: process.env.CLIENT_SECRET
+        clientSecret: req.body.secret
     });
 
     res.status(200).send({
